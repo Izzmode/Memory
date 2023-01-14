@@ -1,26 +1,27 @@
 const section = document.querySelector('section');
 const playerLivesCount = document.querySelector('.playerLivesCount');
+const message = document.querySelector('.message');
 let playerLives = 6;
 
 playerLivesCount.textContent = playerLives;
 
 const getData = () => [
-{imgSrc: 'images/chick.jpg', name: 'chick'},
-{imgSrc: 'images/cow.jpg', name: 'cow'},
-{imgSrc: 'images/hare.jpg', name: 'hare'},
-{imgSrc: 'images/horses.jpg', name: 'horses'},
-{imgSrc: 'images/piglet.jpg', name: 'piglet'},
-{imgSrc: 'images/puppy.jpg', name: 'puppy'},
-{imgSrc: 'images/rooster.jpg', name: 'rooster'},
-{imgSrc: 'images/sheep.jpg', name: 'sheep'},
-{imgSrc: 'images/chick.jpg', name: 'chick'},
-{imgSrc: 'images/cow.jpg', name: 'cow'},
-{imgSrc: 'images/hare.jpg', name: 'hare'},
-{imgSrc: 'images/horses.jpg', name: 'horses'},
-{imgSrc: 'images/piglet.jpg', name: 'piglet'},
-{imgSrc: 'images/puppy.jpg', name: 'puppy'},
-{imgSrc: 'images/rooster.jpg', name: 'rooster'},
-{imgSrc: 'images/sheep.jpg', name: 'sheep'},
+{imgSrc: 'images/alien.jpg', name: 'alien'},
+{imgSrc: 'images/bond.jpg', name: 'bond'},
+{imgSrc: 'images/jurassic.jpg', name: 'jurassic'},
+{imgSrc: 'images/terminator.jpg', name: 'terminator'},
+{imgSrc: 'images/lotr.jpg', name: 'lotr'},
+{imgSrc: 'images/matrix.jpg', name: 'matrix'},
+{imgSrc: 'images/potter.jpg', name: 'potter'},
+{imgSrc: 'images/star-wars.jpg', name: 'star-wars'},
+{imgSrc: 'images/alien.jpg', name: 'alien'},
+{imgSrc: 'images/bond.jpg', name: 'bond'},
+{imgSrc: 'images/jurassic.jpg', name: 'jurassic'},
+{imgSrc: 'images/terminator.jpg', name: 'terminator'},
+{imgSrc: 'images/lotr.jpg', name: 'lotr'},
+{imgSrc: 'images/matrix.jpg', name: 'matrix'},
+{imgSrc: 'images/potter.jpg', name: 'potter'},
+{imgSrc: 'images/star-wars.jpg', name: 'star-wars'},
 
 ];
 
@@ -58,6 +59,7 @@ const cardGenerator = () =>{
         card.addEventListener('click', e => {
             card.classList.toggle('toggleCard');
             checkCards(e);
+            message.textContent= '';
         })
     })
 
@@ -88,17 +90,19 @@ const cardGenerator = () =>{
 
                 playerLives--;
                 playerLivesCount.textContent = playerLives;
-                if(playerLives == 0){
+
+                if(playerLives == 0)setTimeout(() =>{
                     restart('try again');
-                };
+                }, 1000);
             } 
         }
     
     
 
-        if(toggleCard.length === 16){
+        if(toggleCard.length === 16)setTimeout(() =>{
         restart('You won')
-        };
+        }, 1000)
+
     }
 };
 
@@ -123,7 +127,9 @@ const restart = (text) => {
     
     playerLivesCount.textContent = playerLives;
 
-    setTimeout(() => window.alert(text), 100);
+    // setTimeout(() => window.alert(text), 100);
+    message.textContent = text;
+
 }
 
 cardGenerator();
