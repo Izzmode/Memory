@@ -100,7 +100,7 @@ const cardGenerator = () =>{
     
 
         if(toggleCard.length === 16)setTimeout(() =>{
-        restart('You won')
+        restart("Congratulations, you're a nerd!")
         }, 1000)
 
     }
@@ -127,7 +127,6 @@ const restart = (text) => {
     
     playerLivesCount.textContent = playerLives;
 
-    // setTimeout(() => window.alert(text), 100);
     message.textContent = text;
 
 }
